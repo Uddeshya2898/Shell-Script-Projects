@@ -3,7 +3,8 @@
 # Welcome the user 
 echo "Hello, $(whoami). Welcome!"
 
-# Show the date and time echo "Today's date and time is $(date)." 
+# Show the date and time
+echo "Today's date and time is $(date)." 
 
 # Show the uptime of the server and the last logins 
 echo "uptime: $(uptime)" 
