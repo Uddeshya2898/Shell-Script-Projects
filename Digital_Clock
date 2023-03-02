@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Making digital clock using infinite loop.
+
+while true
+do
+        clear
+        echo " $(date +%T) "
+        sleep 1s
+done
