@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+# Welcome the user 
+echo "Hello, $(whoami). Welcome!"
+
+# Show the date and time echo "Today's date and time is $(date)." 
+
+# Show the uptime of the server and the last logins 
+echo "uptime: $(uptime)" 
+echo "currently connected:" w
+echo "Last logins:" last -a | head -3
+
+# Show the disk space and RAM utilization
+echo "Disk space utilization:" df -h | xargs | awk '{print "Free/Total disk: " $11 "/" $9}' 
+echo "RAM utilization:" free -m | xargs | awk '{print "Free/Total memory: " $10 "/" $8 "MB"}' 
+
+# Show the top CPU processes 
+echo "Top CPU processes:" top -b | head -3
