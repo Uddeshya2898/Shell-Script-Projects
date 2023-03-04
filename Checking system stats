@@ -4,16 +4,21 @@
 echo "Hello, $(whoami). Welcome!"
 
 # Show the date and time
-echo "Today's date and time is $(date)." 
+echo " ******************************* CURRENT DATE AND TIME ****************************** "
+date | awk '{print " Today is: " $3 " - " $2 " ; Day = " $1 " ; Time: " $4 }'
+echo ""
 
-# Show the uptime of the server and the last logins 
-echo "uptime: $(uptime)" 
-echo "currently connected:" w
-echo "Last logins:" last -a | head -3
+echo " *************************************** DISK SPACE AVAILABLE ********************************************************************** "
+df -H | xargs | awk '{ print " Disk Space Available: " "Free/Used: " $10 "/" $9 " :GB" }'
+echo ""
 
-# Show the disk space and RAM utilization
-echo "Disk space utilization:" df -h | xargs | awk '{print "Free/Total disk: " $11 "/" $9}' 
-echo "RAM utilization:" free -m | xargs | awk '{print "Free/Total memory: " $10 "/" $8 "MB"}' 
+echo " ***************************** USER UPTIME ****************************************************** "
+uptime
+echo ""
 
-# Show the top CPU processes 
-echo "Top CPU processes:" top -b | head -3
+echo "******************************* LAST 3 LOGIN DETAILS ********************************************* "
+last | head -3
+echo ""
+
+echo "****************************************** CURRENTLY CONNECTED *************************************** "
+w
